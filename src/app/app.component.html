@@ -1,8 +1,16 @@
-<app-header (featureSelected)="onNavigate($event)"></app-header>
+<app-header (selectedFeatureEvent)="switchView($event)"></app-header>
+
+  <div class="container pull-left">
+    <app-documents *ngIf="selectedFeature == 'documents'"></app-documents>
+    <app-message-list *ngIf="selectedFeature == 'messages'"></app-message-list>
+    <app-contacts *ngIf="selectedFeature == 'contacts'"></app-contacts>
+    <!-- <p #infoText>invalid link</p> error handling? -->
+  </div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-contacts *ngIf="loadedFeature === 'contact'"></app-contacts>
+      <app-contacts *ngIf="selectedFeature  === 'contact'"></app-contacts>
     </div>
   </div>
 </div>
