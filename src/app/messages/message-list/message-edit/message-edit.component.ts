@@ -1,4 +1,4 @@
-import { Message } from '../message.model'
+import { Message } from '../../message.model'
 import { Component, ElementRef, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
 
 @Component({
@@ -21,6 +21,7 @@ export class MessageEditComponent implements OnInit {
     let newMsg = new Message(0, subject, msgText, this.currentSender);
 
     this.addMessageEvent.emit(newMsg);
+
   }
 
   onClear() {
