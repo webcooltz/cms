@@ -8,11 +8,17 @@ import { MOCKCONTACTS } from "./MOCKCONTACTS";
 })
 export class ContactService {
 
-  contactSelected = new EventEmitter<Contact>();
-
   contacts: Contact [] =[];
 
+  // emits when contact is selected
+  contactSelected = new EventEmitter<Contact>();
+  // HELP - emits when ID is selected
+  contactIdSelected = new EventEmitter<Contact>();
+  // emits when changes are made
+  contactsChanged = new EventEmitter<Contact[]>();
+
   constructor() {
+    // populates contacts array with the mock JSON file
     this.contacts = MOCKCONTACTS;
  }
 
@@ -20,13 +26,30 @@ export class ContactService {
     return this.contacts.slice();
   }
 
-  getContact(id: string): Contact {
-    for (let contact in this.contacts) {
-      if (id == contact.id) {
-        return contact;
+  // HELP - gets a single contact by ID(?)
+  getContact(id: string): Contact | null {
+
+    for (var i = 0; i < this.contacts.length; i++) {
+      if (this.contacts[i].id = id) {
+        return this.contacts[i];
+      } else {
+        return this.contacts[0];
       }
     }
     return null;
+
+    // todo delete?
+    // for (let contact in this.contacts) {
+    //   if (this.contacts[contact].id == id) {
+    //     return this.contacts[contact];
+    //   }
+    // }
+    // return this.contacts[0];
+  }
+
+  addContact(contact: Contact) {
+    this.contacts.push(contact);
+    this.contactsChanged.emit(this.contacts.slice());
   }
 
 }
