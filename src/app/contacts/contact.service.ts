@@ -27,16 +27,14 @@ export class ContactService {
   }
 
   // HELP - gets a single contact by ID(?)
-  getContact(id: string): Contact | null {
+  getContact(id: string): Contact {
 
     for (var i = 0; i < this.contacts.length; i++) {
       if (this.contacts[i].id == id) {
         return this.contacts[i];
-      } else {
-        return this.contacts[0];
       }
     }
-    return null;
+    return null as any;
 
     // todo delete?
     // for (let contact in this.contacts) {
