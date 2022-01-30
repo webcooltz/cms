@@ -13,6 +13,10 @@ export class ContactListComponent implements OnInit {
 
   selectedContact!: Contact | null;
 
+  onSelected(contact: Contact) {
+    this.contactService.contactSelected.emit(contact);
+  }
+
   constructor(private contactService: ContactService) {
    }
 

@@ -30,7 +30,7 @@ export class ContactService {
   getContact(id: string): Contact | null {
 
     for (var i = 0; i < this.contacts.length; i++) {
-      if (this.contacts[i].id = id) {
+      if (this.contacts[i].id == id) {
         return this.contacts[i];
       } else {
         return this.contacts[0];

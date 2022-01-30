@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Document } from '../document.model';
+import { DocumentService } from '../document.service';
 
 @Component({
   selector: 'app-document-list',
@@ -8,28 +9,33 @@ import { Document } from '../document.model';
 })
 export class DocumentListComponent implements OnInit {
 
-  // new event emitter to output the data for the document
-  @Output() selectedDocumentEvent = new EventEmitter<Document>();
-
   // an array of document objects - dummy data for our list of documents
-  documents: Document[] = [
-    new Document(1, "wdd 430", "full stack web development", "byui.edu", "web dev"),
+  documents: Document[] = [];
 
-    new Document(2, "wdd 100", "intro to web design and development", "byui.edu", "web dev"),
+  selectedDocument!: Document | null;
 
-    new Document(3, "cit 230", "frontend web development", "byui.edu", "web dev"),
-
-    new Document(4, "cit 260", "object-oriented development", "byui.edu", "web dev")
-  ];
-
-  // the method that will call the event emitter to pass the data
   onSelectedDocument(document: Document) {
-    this.selectedDocumentEvent.emit(document);
+    this.documentService.documentSelected.emit(document);
   }
 
-  constructor() { }
+  constructor(private documentService: DocumentService) {
 
-  ngOnInit(): void {
+  }
+
+  ngOnInit() {
+    // getting all contacts
+    this.documents = this.documentService.getDocuments();
+
+    // HELP - getting a specific contact
+    // this.selectedContact = this.contactService.getContact(id);
+
+    // detecting changes in contacts
+    this.documentService.documentsChanged
+      .subscribe(
+        (contacts: Document[]) => {
+          this.documents = contacts;
+        }
+      )
   }
 
 }
