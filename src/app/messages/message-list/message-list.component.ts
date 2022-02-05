@@ -22,9 +22,6 @@ export class MessageListComponent implements OnInit {
     // getting all contacts
     this.messages = this.messageService.getMessages();
 
-    // HELP - getting a specific contact
-    // this.selectedContact = this.contactService.getContact(id);
-
     // detecting changes in contacts
     this.messageService.messagesChanged
       .subscribe(
