@@ -25,15 +25,18 @@ export class DocumentService {
     return this.documents.slice();
   }
 
-  getDocument(id: string): Document | null {
-    for (var i = 0; i < this.documents.length; i++) {
-      if (this.documents[i].id == id) {
-        return this.documents[i];
-      } else {
-        return this.documents[0];
-      }
-    }
-    return null;
+  getDocument(id: string): Document {
+    // for (var i = 0; i < this.documents.length; i++) {
+    //   if (this.documents[i].id == id) {
+    //     return this.documents[i];
+    //   } else {
+    //     return this.documents[0];
+    //   }
+    // }
+    // return null as any;
+
+    // configuring route paramters: 5:30
+    return this.documents[+id];
   }
 
   addDocument(document: Document) {

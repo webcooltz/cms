@@ -10,11 +10,9 @@ export class DocumentItemComponent implements OnInit {
 
   @Input() document!: Document;
 
-  @Output() documentSelected = new EventEmitter<void>();
+  @Input() index!: number;
 
-  onSelected() {
-    this.documentSelected.emit();
-  }
+  // @Output() documentSelected = new EventEmitter<void>();
 
   constructor() { }
 
