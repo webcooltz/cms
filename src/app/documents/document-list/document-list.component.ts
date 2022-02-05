@@ -14,10 +14,6 @@ export class DocumentListComponent implements OnInit {
 
   selectedDocument!: Document | null;
 
-  onSelectedDocument(document: Document) {
-    this.documentService.documentSelected.emit(document);
-  }
-
   constructor(private documentService: DocumentService) {
 
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-document-edit',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentEditComponent implements OnInit {
 
-  constructor() { }
+  id!: string;
+  editMode = false;
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = params['id'];
+          this.editMode = params['id'] != null;
+        }
+      )
   }
 
 }
