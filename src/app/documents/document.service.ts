@@ -26,16 +26,6 @@ export class DocumentService {
   }
 
   getDocument(id: string): Document {
-    // for (var i = 0; i < this.documents.length; i++) {
-    //   if (this.documents[i].id == id) {
-    //     return this.documents[i];
-    //   } else {
-    //     return this.documents[0];
-    //   }
-    // }
-    // return null as any;
-
-    // configuring route paramters: 5:30
     return this.documents[+id];
   }
 
@@ -43,5 +33,17 @@ export class DocumentService {
     this.documents.push(document);
     this.documentsChanged.emit(this.documents.slice());
   }
+
+  deleteDocument(document: Document) {
+    if (!document) {
+       return;
+    }
+    const pos = this.documents.indexOf(document);
+    if (pos < 0) {
+       return;
+    }
+    this.documents.splice(pos, 1);
+    this.documentsChanged.emit(this.documents.slice());
+ }
 
 }

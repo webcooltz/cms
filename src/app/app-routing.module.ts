@@ -4,6 +4,7 @@ import { RouterModule, Routes } from "@angular/router";
 
 // contacts and children
 import { ContactsComponent } from "./contacts/contacts.component";
+import { ContactEditComponent } from "./contacts/contact-edit/contact-edit.component";
 // documents and children
 import { DocumentsComponent } from "./documents/documents.component";
 import { DocumentStartComponent } from "./documents/document-start/document-start.component";
@@ -11,6 +12,8 @@ import { DocumentDetailComponent } from "./documents/document-detail/document-de
 import { DocumentEditComponent } from "./documents/document-edit/document-edit.component";
 // messages list and children
 import { MessageListComponent } from "./messages/message-list/message-list.component";
+import { ContactDetailComponent } from "./contacts/contact-detail/contact-detail.component";
+import { ContactStartComponent } from "./contacts/contact-start/contact-start.component";
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/documents', pathMatch: 'full' },
@@ -21,7 +24,12 @@ const appRoutes: Routes = [
     { path: ':id/edit', component: DocumentEditComponent}
   ]},
   { path: 'messages', component: MessageListComponent },
-  { path: 'contacts', component: ContactsComponent }
+  { path: 'contacts', component: ContactsComponent, children: [
+    { path: '', component: ContactStartComponent },
+    { path: 'new', component: ContactEditComponent},
+    { path: ':id', component: ContactDetailComponent},
+    { path: ':id/edit', component: ContactEditComponent}
+  ] }
 ]
 
 @NgModule({

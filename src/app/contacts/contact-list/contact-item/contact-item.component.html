@@ -1,11 +1,11 @@
 <a
   class="list-group-item clearfix"
-  (click)="onSelected()"
   style="cursor: pointer;"
+  [routerLink]="[index]"
+  routerLinkActive="active"
 >
         <div class="pull-left">
           <h4 class="list-group-item-heading">{{ contact.name }}</h4>
-          <!-- <p class="list-group-item-text">{{ contact.email }}</p> -->
         </div>
         <span class="pull-right">
           <img

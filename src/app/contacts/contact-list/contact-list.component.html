@@ -4,16 +4,19 @@
     <div class="pull-left">
       Contacts
     </div>
-    <button class="btn btn-success  pull-right">
-      New Contact
-    </button>
+    <a
+        routerLink="new"
+        class="btn btn-success pull-right">
+        Add Contact
+      </a>
   </div>
 </div>
 <hr>
   <div class="col-xs-12 panel-body">
       <app-contact-item
-      *ngFor="let contactEl of contacts"
+      *ngFor="let contactEl of contacts; let i = index"
       [contact]="contactEl"
-      ></app-contact-item>
+      [index]="i">
+    </app-contact-item>
   </div>
 </div>

@@ -29,25 +29,32 @@ export class ContactService {
   // HELP - gets a single contact by ID(?)
   getContact(id: string): Contact {
 
-    for (var i = 0; i < this.contacts.length; i++) {
-      if (this.contacts[i].id == id) {
-        return this.contacts[i];
-      }
-    }
-    return null as any;
-
-    // todo delete?
-    // for (let contact in this.contacts) {
-    //   if (this.contacts[contact].id == id) {
-    //     return this.contacts[contact];
+    // for (var i = 0; i < this.contacts.length; i++) {
+    //   if (this.contacts[i].id == id) {
+    //     return this.contacts[i];
     //   }
     // }
-    // return this.contacts[0];
+    // return null as any;
+
+    return this.contacts[+id];
+
   }
 
   addContact(contact: Contact) {
     this.contacts.push(contact);
     this.contactsChanged.emit(this.contacts.slice());
   }
+
+  deleteContact(contact: Contact) {
+    if (!contact) {
+       return;
+    }
+    const pos = this.contacts.indexOf(contact);
+    if (pos < 0) {
+       return;
+    }
+    this.contacts.splice(pos, 1);
+    this.contactsChanged.emit(this.contacts.slice());
+ }
 
 }

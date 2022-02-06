@@ -8,8 +8,16 @@
           (click)="onView()">
           View
         </a>
-        <a routerLink="edit" class="btn btn-info" >Edit</a>
-        <a class="btn btn-danger">Delete</a>
+        <a
+          routerLink="edit"
+          class="btn btn-info">
+          Edit
+        </a>
+        <a
+          class="btn btn-danger"
+          (click)="onDelete()">
+          Delete
+        </a>
       </div>
     </div>
   </div>

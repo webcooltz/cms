@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
 
@@ -11,23 +12,14 @@ export class ContactListComponent implements OnInit {
 
   contacts: Contact[] = [];
 
-  selectedContact!: Contact | null;
-
-  onSelected(contact: Contact) {
-    this.contactService.contactSelected.emit(contact);
-  }
-
-  constructor(private contactService: ContactService) {
+  constructor(private contactService: ContactService,
+              private router: Router,
+              private route: ActivatedRoute) {
    }
 
   ngOnInit() {
-    // getting all contacts
     this.contacts = this.contactService.getContacts();
 
-    // HELP - getting a specific contact
-    // this.selectedContact = this.contactService.getContact(id);
-
-    // detecting changes in contacts
     this.contactService.contactsChanged
       .subscribe(
         (contacts: Contact[]) => {

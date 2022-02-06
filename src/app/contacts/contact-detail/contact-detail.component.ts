@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
 
@@ -9,15 +10,30 @@ import { ContactService } from '../contact.service';
 })
 export class ContactDetailComponent implements OnInit {
 
-  @Input() contact!: Contact;
+  contact!: Contact;
+  id!: string;
+  nativeWindow: any;
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService,
+              private route: ActivatedRoute,
+              private router: Router) {
+              }
 
   ngOnInit() {
+    // gets route by parameter ID
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = params['id'];
+          this.contact = this.contactService.getContact(this.id);
+        }
+      );
   }
 
-  // onAddContact() {
+  onDelete() {
+    this.contactService.deleteContact(this.contact);
+    this.router.navigate([''], {relativeTo: this.route});
+ }
 
-  // }
 
 }

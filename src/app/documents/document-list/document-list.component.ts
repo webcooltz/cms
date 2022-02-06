@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
 
@@ -9,27 +10,20 @@ import { DocumentService } from '../document.service';
 })
 export class DocumentListComponent implements OnInit {
 
-  // an array of document objects - dummy data for our list of documents
   documents: Document[] = [];
 
-  selectedDocument!: Document | null;
-
-  constructor(private documentService: DocumentService) {
-
+  constructor(private documentService: DocumentService,
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    // getting all contacts
     this.documents = this.documentService.getDocuments();
 
-    // HELP - getting a specific contact
-    // this.selectedContact = this.contactService.getContact(id);
-
-    // detecting changes in contacts
     this.documentService.documentsChanged
       .subscribe(
-        (contacts: Document[]) => {
-          this.documents = contacts;
+        (documents: Document[]) => {
+          this.documents = documents;
         }
       )
   }
