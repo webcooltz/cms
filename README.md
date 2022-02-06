@@ -16,3 +16,13 @@
 * Set up document details to show when clicked
 * Dropdown menu
 * Demo link: https://youtu.be/fyEp-EkHBsw
+
+### Week 5 assignment: Services
+* Got services set up for several components
+* Passing data between components
+* Demo link: https://youtu.be/Re6v-oKhx7w
+
+### Week 6 assignment: Routing
+* Got routing set up for navigation in pages and on lists in the pages
+* Child and parent routing
+* Demo link: https://youtu.be/0DliCnitIT0
