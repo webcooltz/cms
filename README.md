@@ -26,3 +26,8 @@
 * Got routing set up for navigation in pages and on lists in the pages
 * Child and parent routing
 * Demo link: https://youtu.be/0DliCnitIT0
+* 
+### Week 7 assignment: Observables
+* Replaced evenemitters with observables
+* Got update, add, and delete classes in the services
+* Demo link: https://youtu.be/4DbMjJspcEA
