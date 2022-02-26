@@ -25,6 +25,8 @@ import { ContactStartComponent } from './contacts/contact-start/contact-start.co
 
 import { FormsModule } from '@angular/forms';
 
+import { DndModule } from 'ng2-dnd';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    DndModule.forRoot()
   ],
   providers: [ContactService],
   bootstrap: [AppComponent]

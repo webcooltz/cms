@@ -64,7 +64,7 @@ export class ContactService {
     return maxId;
   }
 
-  updateDocument(originalContact: Contact, newContact: Contact) {
+  updateContact(originalContact: Contact, newContact: Contact) {
     if (originalContact == null || originalContact == undefined || newContact == null || newContact == undefined) {
       return;
     }

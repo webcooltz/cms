@@ -47,16 +47,6 @@ export class DocumentEditComponent implements OnInit {
           this.document = JSON.parse(JSON.stringify(this.originalDocument));
         }
       )
-
-      // this.subscription = this.documentService.startedEditing
-      //   .subscribe(
-      //     (index: number) => {
-      //       this.editedItemIndex = index;
-      //       this.editMode = true;
-      //       this.editedItem = this.documentService.getDocument(index);
-      //     }
-      //   )
-
   }
 
   onSubmit(form: NgForm) {

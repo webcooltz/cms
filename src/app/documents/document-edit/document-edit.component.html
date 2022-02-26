@@ -16,6 +16,7 @@
             name="name"
             [ngModel]=document?.name
             required
+            #name="ngModel"
             >
         </div>
       </div>
@@ -31,6 +32,7 @@
             max="255"
             name="description"
             [ngModel]=document?.description
+            #description="ngModel"
             >
         </div>
       </div>
@@ -47,6 +49,7 @@
             name="url"
             [ngModel]=document?.url
             required
+            #url="ngModel"
             >
         </div>
       </div>
@@ -54,7 +57,7 @@
       <div
         class="alert alert-danger"
         *ngIf="!f.valid">
-          The Document title and Document URL are required.
+        The Document title and Document URL are required.
       </div>
 
       <div class="row">
