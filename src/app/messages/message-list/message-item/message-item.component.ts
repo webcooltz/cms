@@ -1,7 +1,9 @@
 import { Message } from '../../message.model';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MessageService } from '../../message.service';
 import { ContactService } from 'src/app/contacts/contact.service';
 import { Contact } from 'src/app/contacts/contact.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-message-item',
@@ -20,12 +22,13 @@ export class MessageItemComponent implements OnInit {
     this.messageSelected.emit();
   }
 
-  constructor(private contactService: ContactService) {
-
+  constructor(private messageService: MessageService,
+              private contactService: ContactService) {
    }
 
   ngOnInit() {
-    const contact: Contact = this.contactService.getContact(this.message.sender);
+    let message = this.messageService.getMessage(this.message.id);
+    const contact: Contact = this.contactService.getContact(message.sender);
     this.messageSender = contact.name;
   }
 

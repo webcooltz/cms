@@ -14,13 +14,11 @@ export class DocumentListComponent implements OnInit, OnDestroy {
   documents: Document[] = [];
   private documentChangeSub!: Subscription;
 
-  constructor(private documentService: DocumentService,
-              private router: Router,
-              private route: ActivatedRoute) {
+  constructor(private documentService: DocumentService) {
   }
 
   ngOnInit() {
-    this.documents = this.documentService.getDocuments();
+    this.documents = this.documentService.fetchDocuments();
 
     this.documentChangeSub = this.documentService.documentsChanged
       .subscribe(
