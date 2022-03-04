@@ -14,6 +14,7 @@
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
     "@angular/core": "~12.2.0",
+    "@angular/fire": "^7.2.1",
     "@angular/forms": "~12.2.0",
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
@@ -23,12 +24,14 @@
     "bootstrap3": "^3.3.5",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.3",
+    "firebase": "^9.6.8",
     "morgan": "^1.10.0",
     "ng2-dnd": "^5.0.2",
     "rxjs": "^6.6.7",
     "rxjs-compat": "^6.6.7",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "rxfire": "^6.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.2",

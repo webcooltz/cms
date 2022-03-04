@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "cms-byui-dcf7f"
+  },
+  "targets": {
+    "cms-byui-dcf7f": {
+      "hosting": {
+        "cms": [
+          "cms-byui-dcf7f"
+        ]
+      }
+    }
+  }
+}
